@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+---
+
+<BaseLayout
+  title="Emergency Electrical Services"
+  description="24/7 emergency electrical services in Vancouver. Power outages, circuit breaker repairs, panel upgrades & more. Licensed electricians available now."
+  service="electrical"
+>
+  <ServiceHero
+    service="electrical"
+    title="Emergency Electrical Services"
+    subtitle="Safe, professional electrical solutions available 24/7 throughout Vancouver"
+    emergencyNumber="(604) 555-0123"
+  />
+
+  <!-- Services Grid -->
+  <section id="services" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Electrical Services</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          From power outages to safety inspections, our licensed electricians provide safe, reliable electrical services for homes and businesses.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ServiceCard
+          title="Emergency Power Restoration"
+          description="Immediate response for power outages and electrical failures"
+          price="$150"
+          urgent={true}
+          features={[
+            "24/7 power outage response",
+            "Circuit troubleshooting",
+            "Generator installations",
+            "Emergency panel repairs",
+            "Safety assessments"
+          ]}
+        />
+
+        <ServiceCard
+          title="Circuit Breaker Services"
+          description="Circuit breaker repairs, replacements, and upgrades"
+          price="$125"
+          features={[
+            "Breaker replacement",
+            "Panel upgrades",
+            "Circuit additions",
+            "Load balancing",
+            "Safety inspections"
+          ]}
+        />
+
+        <ServiceCard
+          title="Panel Upgrades & Repairs"
+          description="Complete electrical panel services and modernization"
+          price="$200"
+          features={[
+            "Panel replacements",
+            "Service upgrades (100A to 200A+)",
+            "Code compliance updates",
+            "Safety improvements",
+            "Permit handling included"
+          ]}
+        />
+
+        <ServiceCard
+          title="Outlet & Switch Repairs"
+          description="Outlet, switch, and fixture installation and repair"
+          price="$95"
+          features={[
+            "GFCI outlet installations",
+            "USB outlet upgrades",
+            "Switch replacements",
+            "Light fixture installations",
+            "Dimmer switch installations"
+          ]}
+        />
+
+        <ServiceCard
+          title="Emergency Safety Inspections"
+          description="Urgent electrical safety assessments and hazard identification"
+          price="$175"
+          urgent={true}
+          features={[
+            "Fire hazard assessments",
+            "Code violation identification",
+            "Emergency safety shutoffs",
+            "Insurance inspection reports",
+            "Immediate repair recommendations"
+          ]}
+        />
+
+        <ServiceCard
+          title="Electrical Troubleshooting"
+          description="Expert diagnosis and resolution of electrical problems"
+          price="$110"
+          features={[
+            "Power loss diagnosis",
+            "Intermittent problem solving",
+            "Wiring inspections",
+            "Load testing",
+            "Detailed problem reports"
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety Warning -->
+  <section class="py-8 bg-red-50 border-l-4 border-red-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <span class="text-3xl">⚠️</span>
+        </div>
+        <div class="ml-3">
+          <h3 class="text-lg font-semibold text-red-800 mb-2">Electrical Safety Warning</h3>
+          <p class="text-red-700">
+            Electrical work can be dangerous and potentially deadly if not handled properly. Never attempt electrical repairs yourself.
+            Always call a licensed professional for electrical issues to ensure your safety and comply with local electrical codes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Vancouver Trusts Our Electrical Services</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🔒</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Safety First</h3>
+          <p class="text-gray-600">All work is performed to the highest safety standards and local electrical codes. We prioritize your family's safety above all else.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🛡️</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Licensed & Insured</h3>
+          <p class="text-gray-600">Our electricians are fully licensed, bonded, and insured. We handle all permits and ensure code compliance.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">⚡</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Emergency Available</h3>
+          <p class="text-gray-600">Electrical emergencies can't wait. We offer 24/7 emergency services for urgent electrical problems and safety concerns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency CTA -->
+  <section class="py-16 bg-yellow-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Electrical Emergency? Call Immediately!</h2>
+      <p class="text-xl mb-8 text-yellow-100">
+        Electrical problems can be dangerous. Don't risk your safety - call our emergency electricians now for immediate professional help.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="tel:6045550123"
+          class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-bold inline-flex items-center justify-center gap-3 transition-colors"
+        >
+          🚨 Emergency Call: (604) 555-0123
+        </a>
+        <a
+          href="#services"
+          class="bg-white hover:bg-gray-100 text-yellow-600 px-8 py-4 rounded-lg text-xl font-bold inline-flex items-center justify-center transition-colors"
+        >
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

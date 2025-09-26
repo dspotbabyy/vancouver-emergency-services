@@ -1,29 +1,47 @@
-# Astro Starter Kit: Minimal
+# Vancouver Emergency Services Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A professional contracting website built with Astro, featuring service-specific silos for plumbing and electrical emergency services.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🏢 Business Overview
+
+Vancouver Emergency Plumbing & Electrical Services provides 24/7 professional emergency services throughout Vancouver and the Lower Mainland. The website features separate service areas for plumbing and electrical services while maintaining a unified brand experience.
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── layouts/
+│   │   └── BaseLayout.astro          # Main layout component
+│   ├── components/
+│   │   ├── ServiceHero.astro         # Hero section for service pages
+│   │   ├── ServiceCard.astro         # Service offering cards
+│   │   ├── plumbing/                 # Plumbing-specific components
+│   │   └── electrical/               # Electrical-specific components
+│   ├── pages/
+│   │   ├── index.astro               # Homepage
+│   │   ├── contact.astro             # Contact information
+│   │   ├── plumbing/
+│   │   │   └── index.astro           # Plumbing services page
+│   │   └── electrical/
+│   │       └── index.astro           # Electrical services page
+│   ├── styles/                       # Custom styles (if needed)
+│   └── assets/
+│       └── images/
+│           ├── plumbing/             # Plumbing service images
+│           └── electrical/           # Electrical service images
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🎯 Features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+- **Service-Specific Silos**: Separate sections for plumbing and electrical services
+- **Emergency Contact Integration**: Prominent emergency phone numbers throughout
+- **Mobile-Responsive Design**: Built with Tailwind CSS for all device sizes
+- **Professional Branding**: Consistent Vancouver Emergency Services branding
+- **SEO Optimized**: Proper meta tags and structured content
+- **24/7 Emergency Focus**: Emphasizes immediate availability and response
 
 ## 🧞 Commands
 

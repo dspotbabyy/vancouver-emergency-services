@@ -1,0 +1,85 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  service?: 'plumbing' | 'electrical';
+}
+
+const { title, description = 'Vancouver Emergency Plumbing & Electrical Services - 24/7 professional services', service } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Vancouver Emergency Services</title>
+  </head>
+  <body class="h-full bg-gray-50">
+    <header class="bg-white shadow-sm border-b border-gray-200">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold text-gray-900">
+              Vancouver Emergency Services
+            </h1>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="/" class="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href="/plumbing" class={`px-3 py-2 rounded-md text-sm font-medium ${service === 'plumbing' ? 'bg-blue-100 text-blue-700' : 'text-gray-900 hover:text-blue-600'}`}>
+                Plumbing Services
+              </a>
+              <a href="/electrical" class={`px-3 py-2 rounded-md text-sm font-medium ${service === 'electrical' ? 'bg-yellow-100 text-yellow-700' : 'text-gray-900 hover:text-yellow-600'}`}>
+                Electrical Services
+              </a>
+              <a href="/contact" class="bg-red-600 text-white hover:bg-red-700 px-4 py-2 rounded-md text-sm font-medium">
+                24/7 Emergency
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-gray-800 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Vancouver Emergency Services</h3>
+            <p class="text-gray-300 text-sm">
+              Professional plumbing and electrical services available 24/7 throughout Vancouver and surrounding areas.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-3">Services</h4>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li><a href="/plumbing" class="hover:text-white">Emergency Plumbing</a></li>
+              <li><a href="/electrical" class="hover:text-white">Emergency Electrical</a></li>
+              <li><a href="/plumbing/drain-cleaning" class="hover:text-white">Drain Cleaning</a></li>
+              <li><a href="/electrical/panel-upgrades" class="hover:text-white">Panel Upgrades</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-3">Contact</h4>
+            <div class="space-y-2 text-sm text-gray-300">
+              <p>📞 (604) 555-0123</p>
+              <p>📧 info@vancouveremergency.com</p>
+              <p>📍 Vancouver, BC</p>
+              <p class="text-red-400 font-semibold">24/7 Emergency Service</p>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+          <p>&copy; 2024 Vancouver Emergency Plumbing & Electrical Services. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
