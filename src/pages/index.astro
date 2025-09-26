@@ -5,140 +5,184 @@ import ServiceCard from '../components/ServiceCard.astro';
 
 <BaseLayout title="Professional Emergency Services" description="Vancouver's trusted 24/7 emergency plumbing and electrical services. Licensed, insured, and ready to help.">
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6">
-        Vancouver Emergency Services
-      </h1>
-      <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-        Professional plumbing and electrical services available 24/7. Licensed, insured, and ready to solve your emergency problems.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="tel:6045550123"
-          class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center justify-center gap-2 transition-colors"
-        >
-          🚨 Emergency: (604) 555-0123
-        </a>
-        <a
-          href="#services"
-          class="bg-white hover:bg-gray-100 text-blue-800 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-        >
-          View Our Services
-        </a>
-      </div>
-    </div>
-  </section>
+  <section class="bg-gradient-to-b from-white to-stone-50 py-24 md:py-32">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="text-center space-y-8">
+        <div class="space-y-6">
+          <h1 class="text-4xl md:text-6xl font-light text-stone-800 tracking-tight leading-tight">
+            Professional Emergency
+            <span class="block font-medium">Services in Vancouver</span>
+          </h1>
+          <p class="text-lg md:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed font-light">
+            Expert plumbing and electrical solutions available 24/7. Licensed professionals dedicated to quality service and customer satisfaction.
+          </p>
+        </div>
 
-  <!-- Trust Indicators -->
-  <section class="py-8 bg-white border-b">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2">
-            <span class="text-2xl">🕒</span>
-          </div>
-          <span class="font-semibold text-gray-900">24/7 Available</span>
-          <span class="text-sm text-gray-600">Always Here</span>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <a
+            href="tel:6045550123"
+            class="bg-stone-800 hover:bg-stone-700 text-white px-8 py-4 rounded-full text-base font-medium flex items-center justify-center gap-3 transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            Call (604) 555-0123
+          </a>
+          <a
+            href="#services"
+            class="text-stone-600 hover:text-stone-800 px-8 py-4 rounded-full text-base font-medium transition-colors duration-200 border border-stone-200 hover:border-stone-300"
+          >
+            View Services
+          </a>
         </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2">
-            <span class="text-2xl">🛡️</span>
+
+        <!-- Trust indicators -->
+        <div class="pt-12">
+          <div class="flex flex-wrap justify-center gap-8 text-xs text-stone-500 font-medium tracking-wide">
+            <div class="flex items-center space-x-2">
+              <div class="w-1.5 h-1.5 bg-stone-300 rounded-full"></div>
+              <span>Licensed & Insured</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <div class="w-1.5 h-1.5 bg-stone-300 rounded-full"></div>
+              <span>24/7 Emergency Response</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <div class="w-1.5 h-1.5 bg-stone-300 rounded-full"></div>
+              <span>Same-Day Service</span>
+            </div>
           </div>
-          <span class="font-semibold text-gray-900">Licensed & Insured</span>
-          <span class="text-sm text-gray-600">Fully Protected</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-2">
-            <span class="text-2xl">⚡</span>
-          </div>
-          <span class="font-semibold text-gray-900">Fast Response</span>
-          <span class="text-sm text-gray-600">Same Day Service</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-2">
-            <span class="text-2xl">💰</span>
-          </div>
-          <span class="font-semibold text-gray-900">Fair Pricing</span>
-          <span class="text-sm text-gray-600">No Hidden Fees</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services Overview -->
-  <section id="services" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Emergency Services</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          From burst pipes to electrical emergencies, we're Vancouver's trusted professionals for urgent home repairs.
+  <section id="services" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="text-center space-y-6 mb-20">
+        <h2 class="text-3xl md:text-4xl font-light text-stone-800 tracking-tight">
+          Our Professional Services
+        </h2>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+          Expert solutions for your emergency plumbing and electrical needs, delivered with precision and care.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="grid md:grid-cols-2 gap-12">
         <!-- Plumbing Services Card -->
-        <div class="bg-white rounded-lg shadow-lg p-8">
-          <div class="flex items-center mb-6">
-            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-              <span class="text-3xl">🔧</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900">Emergency Plumbing</h3>
-              <p class="text-blue-600 font-semibold">24/7 Plumbing Solutions</p>
+        <div class="group">
+          <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:border-stone-300">
+            <div class="space-y-6">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center group-hover:bg-stone-200 transition-colors duration-200">
+                  <div class="w-6 h-6 border-2 border-stone-400 rounded-full"></div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-stone-800">Plumbing Solutions</h3>
+                  <p class="text-sm text-stone-500">Professional water system services</p>
+                </div>
+              </div>
+
+              <ul class="space-y-3 text-sm text-stone-600">
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Emergency pipe repairs & leak detection</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Drain cleaning & maintenance services</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Water heater installation & repair</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Fixture replacement & upgrades</span>
+                </li>
+              </ul>
+
+              <div class="pt-4">
+                <a href="/plumbing" class="text-stone-800 hover:text-stone-600 text-sm font-medium flex items-center space-x-2 group transition-colors duration-200">
+                  <span>View Plumbing Services</span>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-          <ul class="space-y-2 mb-6 text-gray-700">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Burst pipe repairs</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Drain cleaning & unclogging</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Water heater repairs</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Toilet & fixture repairs</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Emergency shut-offs</li>
-          </ul>
-          <a href="/plumbing" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-colors">
-            View Plumbing Services
-          </a>
         </div>
 
         <!-- Electrical Services Card -->
-        <div class="bg-white rounded-lg shadow-lg p-8">
-          <div class="flex items-center mb-6">
-            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-              <span class="text-3xl">⚡</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900">Emergency Electrical</h3>
-              <p class="text-yellow-600 font-semibold">24/7 Electrical Solutions</p>
+        <div class="group">
+          <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:border-stone-300">
+            <div class="space-y-6">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center group-hover:bg-stone-200 transition-colors duration-200">
+                  <div class="w-6 h-6">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="text-stone-400">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-stone-800">Electrical Services</h3>
+                  <p class="text-sm text-stone-500">Safe & reliable electrical solutions</p>
+                </div>
+              </div>
+
+              <ul class="space-y-3 text-sm text-stone-600">
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Power restoration & emergency repairs</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Panel upgrades & circuit installations</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Safety inspections & code compliance</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-1.5 h-1.5 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Outlet & switch repair services</span>
+                </li>
+              </ul>
+
+              <div class="pt-4">
+                <a href="/electrical" class="text-stone-800 hover:text-stone-600 text-sm font-medium flex items-center space-x-2 group transition-colors duration-200">
+                  <span>View Electrical Services</span>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-          <ul class="space-y-2 mb-6 text-gray-700">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Power outage repairs</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Circuit breaker issues</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Emergency panel upgrades</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Outlet & switch repairs</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Safety inspections</li>
-          </ul>
-          <a href="/electrical" class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-colors">
-            View Electrical Services
-          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Emergency CTA -->
-  <section class="py-16 bg-red-600 text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Have a Plumbing or Electrical Emergency?</h2>
-      <p class="text-xl mb-8 text-red-100">
-        Don't wait - call now for immediate assistance. Our certified professionals are standing by 24/7.
-      </p>
-      <a
-        href="tel:6045550123"
-        class="bg-white hover:bg-gray-100 text-red-600 px-8 py-4 rounded-lg text-xl font-bold inline-flex items-center gap-3 transition-colors"
-      >
-        📞 Call (604) 555-0123 Now
-      </a>
+  <section class="py-24 bg-stone-100">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+      <div class="space-y-8">
+        <h2 class="text-3xl md:text-4xl font-light text-stone-800">Need Emergency Service?</h2>
+        <p class="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
+          Our certified professionals are available around the clock to handle your urgent plumbing and electrical needs.
+        </p>
+        <div class="pt-4">
+          <a
+            href="tel:6045550123"
+            class="bg-stone-800 hover:bg-stone-700 text-white px-10 py-5 rounded-full text-lg font-medium inline-flex items-center gap-4 transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            Call (604) 555-0123
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
