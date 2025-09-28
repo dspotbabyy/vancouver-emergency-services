@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Emergency Services"
+  description="24/7 emergency plumbing and electrical services in Vancouver. Immediate response for urgent situations. Call now for help!"
+>
+  <!-- Emergency Hero -->
+  <section class="bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white pt-24 pb-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 lg:px-12 text-center">
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <span class="w-4 h-4 bg-white rounded-full animate-pulse"></span>
+        <span class="text-sm font-bold tracking-wide uppercase">Emergency Response Active</span>
+      </div>
+
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+        Emergency Help<br />
+        <span class="text-red-200">Available Now</span>
+      </h1>
+
+      <p class="text-xl md:text-2xl text-red-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Don't wait when you have a plumbing or electrical emergency. Our certified professionals are standing by 24/7 to help you.
+      </p>
+
+      <!-- Emergency CTA -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <a
+          href="tel:6722003045"
+          class="bg-white hover:bg-red-50 text-red-600 px-8 py-4 rounded-2xl text-xl font-bold inline-flex items-center justify-center gap-3 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:scale-105 touch-manipulation"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          <span>Call Emergency: (672) 200-3045</span>
+        </a>
+
+        <button
+          id="emergency-booking-btn"
+          class="bg-red-800/50 hover:bg-red-800/70 backdrop-blur text-white border-2 border-white/30 hover:border-white/50 px-8 py-4 rounded-2xl text-xl font-bold inline-flex items-center justify-center gap-3 transition-all duration-200 touch-manipulation"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          </svg>
+          <span>Request Emergency Service</span>
+        </button>
+      </div>
+
+      <!-- Response Time -->
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 inline-block">
+        <div class="flex items-center justify-center gap-4 text-white">
+          <div class="text-center">
+            <div class="text-2xl font-bold">15 min</div>
+            <div class="text-sm text-red-200">Average Response</div>
+          </div>
+          <div class="w-px h-8 bg-white/30"></div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">24/7</div>
+            <div class="text-sm text-red-200">Always Available</div>
+          </div>
+          <div class="w-px h-8 bg-white/30"></div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">Licensed</div>
+            <div class="text-sm text-red-200">Professionals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Types -->
+  <section class="py-16 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mb-4">When to Call for Emergency Help</h2>
+        <p class="text-lg text-stone-600 max-w-3xl mx-auto">
+          Don't hesitate to call if you're experiencing any of these urgent situations that require immediate professional attention.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Plumbing Emergencies -->
+        <div class="bg-white rounded-2xl border border-stone-200 p-8 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2h2v2h-2zm0-4v-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4H7c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-stone-800">Plumbing Emergencies</h3>
+          </div>
+
+          <ul class="space-y-3 text-stone-600">
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Burst pipes or major water leaks</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Sewage backup or overflow</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>No hot water in winter</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Toilet overflowing uncontrollably</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Main water line problems</span>
+            </li>
+          </ul>
+
+          <a
+            href="tel:6722003045"
+            class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 transition-colors touch-manipulation"
+          >
+            <span>Get Plumbing Help Now</span>
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Electrical Emergencies -->
+        <div class="bg-white rounded-2xl border border-stone-200 p-8 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.51c.4 0 .62.19.4.66C12.18 17.98 11 21 11 21z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-stone-800">Electrical Emergencies</h3>
+          </div>
+
+          <ul class="space-y-3 text-stone-600">
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Power outages in your building only</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Burning smell from outlets or panels</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Sparking or smoking electrical components</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Circuit breakers constantly tripping</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+              <span>Electrical panel problems</span>
+            </li>
+          </ul>
+
+          <a
+            href="tel:6722003045"
+            class="mt-6 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 transition-colors touch-manipulation"
+          >
+            <span>Get Electrical Help Now</span>
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Expect -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mb-4">What to Expect</h2>
+        <p class="text-lg text-stone-600 max-w-3xl mx-auto">
+          When you call for emergency service, here's exactly what happens next.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-red-600">1</span>
+          </div>
+          <h3 class="text-lg font-bold text-stone-800 mb-2">Immediate Response</h3>
+          <p class="text-stone-600 text-sm">Your call is answered by our emergency dispatch within 30 seconds.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-red-600">2</span>
+          </div>
+          <h3 class="text-lg font-bold text-stone-800 mb-2">Professional Dispatched</h3>
+          <p class="text-stone-600 text-sm">A licensed technician is sent to your location immediately.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-red-600">3</span>
+          </div>
+          <h3 class="text-lg font-bold text-stone-800 mb-2">Fast Arrival</h3>
+          <p class="text-stone-600 text-sm">Average arrival time is 15 minutes or less for true emergencies.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-red-600">4</span>
+          </div>
+          <h3 class="text-lg font-bold text-stone-800 mb-2">Problem Solved</h3>
+          <p class="text-stone-600 text-sm">We fix the emergency and ensure your safety before leaving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Contact -->
+  <section class="py-16 bg-red-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Don't Wait - Every Second Counts</h2>
+      <p class="text-xl mb-8 text-red-100">
+        Emergency plumbing and electrical problems can cause serious damage or safety hazards. Call now for immediate professional help.
+      </p>
+      <a
+        href="tel:6722003045"
+        class="bg-white hover:bg-red-50 text-red-600 px-10 py-5 rounded-2xl text-2xl font-bold inline-flex items-center gap-4 transition-all duration-200 shadow-2xl hover:shadow-3xl transform hover:scale-105 touch-manipulation"
+      >
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        <span>Call Emergency: (672) 200-3045</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const emergencyBookingBtn = document.getElementById('emergency-booking-btn');
+    const openFormBtn = document.getElementById('open-booking-form');
+
+    emergencyBookingBtn?.addEventListener('click', function() {
+      // Try to open the booking form from the sticky CTA
+      if (openFormBtn) {
+        openFormBtn.click();
+      } else {
+        // Fallback to showing a message
+        alert('Please scroll down to access the booking form, or call our emergency line directly.');
+      }
+    });
+  });
+</script>

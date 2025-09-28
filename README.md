@@ -1,10 +1,10 @@
-# Vancouver Emergency Services Website
+# DSpots Emergency Services Website
 
 A professional contracting website built with Astro, featuring service-specific silos for plumbing and electrical emergency services.
 
 ## 🏢 Business Overview
 
-Vancouver Emergency Plumbing & Electrical Services provides 24/7 professional emergency services throughout Vancouver and the Lower Mainland. The website features separate service areas for plumbing and electrical services while maintaining a unified brand experience.
+DSpots Emergency Plumbing & Electrical Services provides 24/7 professional emergency services throughout Vancouver and the Lower Mainland. The website features separate service areas for plumbing and electrical services while maintaining a unified brand experience.
 
 ## 🚀 Project Structure
 

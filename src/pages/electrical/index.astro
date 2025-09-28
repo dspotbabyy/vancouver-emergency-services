@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceHero from '../../components/ServiceHero.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
 ---
 
 <BaseLayout
@@ -13,7 +14,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
     service="electrical"
     title="Emergency Electrical Services"
     subtitle="Safe, professional electrical solutions available 24/7 throughout Vancouver"
-    emergencyNumber="(604) 555-0123"
+    emergencyNumber="(672) 200-3045"
   />
 
   <!-- Services Grid -->
@@ -131,33 +132,82 @@ import ServiceCard from '../../components/ServiceCard.astro';
   <!-- Why Choose Us -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Vancouver Trusts Our Electrical Services</h2>
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Vancouver Trusts Our Electrical Services</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Certified electricians with the expertise and safety protocols to handle any electrical challenge, from routine installations to emergency repairs.
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl">🔒</span>
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <!-- Features List -->
+        <div class="space-y-8">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Safety First Always</h3>
+              <p class="text-gray-600 leading-relaxed">All work is performed to the highest safety standards and local electrical codes. We prioritize your family's safety above all else and follow strict safety protocols.</p>
+            </div>
           </div>
-          <h3 class="text-xl font-semibold mb-2">Safety First</h3>
-          <p class="text-gray-600">All work is performed to the highest safety standards and local electrical codes. We prioritize your family's safety above all else.</p>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Licensed & Insured</h3>
+              <p class="text-gray-600 leading-relaxed">Our electricians are fully licensed, bonded, and insured. We handle all permits and ensure code compliance with every electrical installation and repair.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">24/7 Emergency Response</h3>
+              <p class="text-gray-600 leading-relaxed">Electrical emergencies can't wait and can be dangerous. We offer immediate emergency services for urgent electrical problems and safety concerns throughout Vancouver.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="text-center">
-          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl">🛡️</span>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Licensed & Insured</h3>
-          <p class="text-gray-600">Our electricians are fully licensed, bonded, and insured. We handle all permits and ensure code compliance.</p>
-        </div>
+        <!-- Professional Electrician Image -->
+        <div class="relative lg:order-last">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+            <OptimizedImage
+              src="/images/professional/thisisengineering-zIL_CiC-bT0-unsplash.jpg"
+              alt="Certified professional electrician working on electrical panel with proper safety equipment and tools in Vancouver"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              width={800}
+              height={600}
+              aspectRatio="4/3"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
 
-        <div class="text-center">
-          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl">⚡</span>
+            <!-- Professional overlay -->
+            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-900">Certified Electrician</div>
+                  <div class="text-sm text-gray-600">Licensed & Safety Certified</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h3 class="text-xl font-semibold mb-2">Emergency Available</h3>
-          <p class="text-gray-600">Electrical emergencies can't wait. We offer 24/7 emergency services for urgent electrical problems and safety concerns.</p>
         </div>
       </div>
     </div>
@@ -172,10 +222,10 @@ import ServiceCard from '../../components/ServiceCard.astro';
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="tel:6045550123"
+          href="tel:6722003045"
           class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-bold inline-flex items-center justify-center gap-3 transition-colors"
         >
-          🚨 Emergency Call: (604) 555-0123
+          🚨 Emergency Call: (672) 200-3045
         </a>
         <a
           href="#services"

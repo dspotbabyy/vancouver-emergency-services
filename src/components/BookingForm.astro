@@ -1,0 +1,389 @@
+---
+export interface Props {
+  variant?: 'default' | 'emergency' | 'compact';
+  defaultService?: 'plumbing' | 'electrical';
+}
+
+const { variant = 'default', defaultService } = Astro.props;
+---
+
+<!-- Booking Form Component -->
+<div class="relative">
+  <!-- Form Container -->
+  <div class={`bg-white rounded-2xl shadow-xl border border-stone-200 overflow-hidden ${
+    variant === 'compact' ? 'p-6' : 'p-8'
+  }`}>
+    <!-- Form Header -->
+    <div class={`text-center mb-6 ${variant === 'compact' ? 'mb-4' : 'mb-6'}`}>
+      <h3 class={`font-bold text-stone-800 ${variant === 'compact' ? 'text-lg' : 'text-2xl'}`}>
+        {variant === 'emergency' ? 'Request Emergency Service' : 'Get Your Free Estimate'}
+      </h3>
+      <p class={`text-stone-600 mt-2 ${variant === 'compact' ? 'text-sm' : 'text-base'}`}>
+        Simple 3-step process • Get response within 15 minutes
+      </p>
+    </div>
+
+    <!-- Booking Form -->
+    <form id="booking-form" class="space-y-6" novalidate>
+      <!-- Step 1: Service Type -->
+      <div class="space-y-3">
+        <label class="block text-sm font-semibold text-stone-800" for="service-type">
+          1. What service do you need?
+        </label>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="group cursor-pointer">
+            <input
+              type="radio"
+              name="serviceType"
+              value="plumbing"
+              class="sr-only peer"
+              checked={defaultService === 'plumbing'}
+              required
+            />
+            <div class="border-2 border-stone-200 rounded-xl p-4 text-center transition-all duration-200 peer-checked:border-blue-500 peer-checked:bg-blue-50 group-hover:border-stone-300 touch-manipulation">
+              <div class="w-8 h-8 mx-auto mb-2 text-blue-600">
+                <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                  <path d="M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M11,17H9V15H11M13,13H11V7H13M15,9H13V11H15M15,15H13V17H15M17,11H15V13H17M17,7H15V9H17"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-stone-800">Plumbing</span>
+              <p class="text-xs text-stone-500 mt-1">Pipes, drains, water heaters</p>
+            </div>
+          </label>
+
+          <label class="group cursor-pointer">
+            <input
+              type="radio"
+              name="serviceType"
+              value="electrical"
+              class="sr-only peer"
+              checked={defaultService === 'electrical'}
+              required
+            />
+            <div class="border-2 border-stone-200 rounded-xl p-4 text-center transition-all duration-200 peer-checked:border-amber-500 peer-checked:bg-amber-50 group-hover:border-stone-300 touch-manipulation">
+              <div class="w-8 h-8 mx-auto mb-2 text-amber-600">
+                <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                  <path d="M11,21H13V19H11V21M11,17H13V15H11V17M13,13V7H11V13H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20Z"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-stone-800">Electrical</span>
+              <p class="text-xs text-stone-500 mt-1">Wiring, panels, outlets</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 2: Contact Information -->
+      <div class="space-y-4">
+        <label class="block text-sm font-semibold text-stone-800" for="customer-name">
+          2. Your contact information
+        </label>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-stone-600 mb-1" for="customer-name">
+              Full Name *
+            </label>
+            <input
+              type="text"
+              id="customer-name"
+              name="customerName"
+              class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors touch-manipulation"
+              placeholder="John Smith"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-stone-600 mb-1" for="customer-phone">
+              Phone Number *
+            </label>
+            <input
+              type="tel"
+              id="customer-phone"
+              name="customerPhone"
+              class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors touch-manipulation"
+              placeholder="(672) 200-3045"
+              required
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-stone-600 mb-1" for="customer-email">
+            Email Address (optional)
+          </label>
+          <input
+            type="email"
+            id="customer-email"
+            name="customerEmail"
+            class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors touch-manipulation"
+            placeholder="john@example.com"
+            autocomplete="email"
+          />
+        </div>
+      </div>
+
+      <!-- Step 3: Service Details -->
+      <div class="space-y-4">
+        <label class="block text-sm font-semibold text-stone-800" for="service-location">
+          3. Service details
+        </label>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-stone-600 mb-1" for="service-location">
+              Location *
+            </label>
+            <select
+              id="service-location"
+              name="serviceLocation"
+              class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors appearance-none bg-white touch-manipulation"
+              required
+            >
+              <option value="">Select your area</option>
+              <option value="vancouver-downtown">Vancouver - Downtown</option>
+              <option value="vancouver-west-end">Vancouver - West End</option>
+              <option value="vancouver-kitsilano">Vancouver - Kitsilano</option>
+              <option value="vancouver-mount-pleasant">Vancouver - Mount Pleasant</option>
+              <option value="north-vancouver">North Vancouver</option>
+              <option value="west-vancouver">West Vancouver</option>
+              <option value="burnaby">Burnaby</option>
+              <option value="richmond">Richmond</option>
+              <option value="surrey">Surrey</option>
+              <option value="new-westminster">New Westminster</option>
+              <option value="coquitlam">Coquitlam</option>
+              <option value="other">Other (please specify)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-stone-600 mb-1" for="preferred-time">
+              Preferred Time
+            </label>
+            <select
+              id="preferred-time"
+              name="preferredTime"
+              class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors appearance-none bg-white touch-manipulation"
+            >
+              <option value="asap">ASAP (Emergency)</option>
+              <option value="today">Today</option>
+              <option value="tomorrow">Tomorrow</option>
+              <option value="this-week">This Week</option>
+              <option value="next-week">Next Week</option>
+              <option value="flexible">I'm Flexible</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-stone-600 mb-1" for="service-description">
+            Brief Description (optional)
+          </label>
+          <textarea
+            id="service-description"
+            name="serviceDescription"
+            rows="3"
+            class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none touch-manipulation"
+            placeholder="Briefly describe the issue or service needed..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Error Message Display -->
+      <div id="form-error" class="hidden bg-red-50 border border-red-200 rounded-xl p-4">
+        <div class="flex items-start space-x-3">
+          <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+          </svg>
+          <div>
+            <h4 class="text-sm font-medium text-red-800">Please fix the following:</h4>
+            <ul id="error-list" class="text-sm text-red-700 mt-1 list-disc list-inside"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Message Display -->
+      <div id="form-success" class="hidden bg-green-50 border border-green-200 rounded-xl p-4">
+        <div class="flex items-start space-x-3">
+          <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <div>
+            <h4 class="text-sm font-medium text-green-800">Request Submitted Successfully!</h4>
+            <p class="text-sm text-green-700 mt-1">We'll contact you within 15 minutes to confirm your appointment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        id="submit-btn"
+        class={`w-full py-4 px-6 rounded-xl font-bold text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] touch-manipulation ${
+          variant === 'emergency'
+            ? 'bg-red-600 hover:bg-red-500 focus:ring-red-500'
+            : 'bg-stone-800 hover:bg-stone-700 focus:ring-stone-500'
+        } focus:ring-2 focus:ring-offset-2`}
+      >
+        <span id="submit-text" class="flex items-center justify-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          {variant === 'emergency' ? 'Request Emergency Service' : 'Get Your Free Estimate'}
+        </span>
+        <span id="submit-loading" class="hidden">
+          <svg class="animate-spin w-5 h-5 mx-auto" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </span>
+      </button>
+
+      <!-- Trust Indicators -->
+      <div class="flex flex-wrap justify-center gap-4 pt-4 text-xs text-stone-500">
+        <div class="flex items-center gap-1">
+          <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          <span>Free Estimates</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          <span>15-Min Response</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          <span>Licensed & Insured</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Form Validation & Submission Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('booking-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitText = document.getElementById('submit-text');
+    const submitLoading = document.getElementById('submit-loading');
+    const errorDiv = document.getElementById('form-error');
+    const successDiv = document.getElementById('form-success');
+    const errorList = document.getElementById('error-list');
+
+    // Form validation
+    function validateForm() {
+      const errors = [];
+      const formData = new FormData(form);
+
+      // Check required fields
+      if (!formData.get('serviceType')) {
+        errors.push('Please select a service type');
+      }
+      if (!formData.get('customerName')?.trim()) {
+        errors.push('Please enter your name');
+      }
+      if (!formData.get('customerPhone')?.trim()) {
+        errors.push('Please enter your phone number');
+      }
+      if (!formData.get('serviceLocation')) {
+        errors.push('Please select your location');
+      }
+
+      // Validate phone number format
+      const phone = formData.get('customerPhone');
+      if (phone && !/^[\+]?[1-9][\d]{0,15}$/.test(phone.replace(/[\s\-\(\)]/g, ''))) {
+        errors.push('Please enter a valid phone number');
+      }
+
+      // Validate email if provided
+      const email = formData.get('customerEmail');
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errors.push('Please enter a valid email address');
+      }
+
+      return errors;
+    }
+
+    // Show errors
+    function showErrors(errors) {
+      errorList.innerHTML = '';
+      errors.forEach(error => {
+        const li = document.createElement('li');
+        li.textContent = error;
+        errorList.appendChild(li);
+      });
+      errorDiv.classList.remove('hidden');
+      successDiv.classList.add('hidden');
+    }
+
+    // Show success
+    function showSuccess() {
+      successDiv.classList.remove('hidden');
+      errorDiv.classList.add('hidden');
+      form.reset();
+    }
+
+    // Handle form submission
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const errors = validateForm();
+      if (errors.length > 0) {
+        showErrors(errors);
+        return;
+      }
+
+      // Hide errors and show loading
+      errorDiv.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitText.classList.add('hidden');
+      submitLoading.classList.remove('hidden');
+
+      try {
+        // Simulate form submission (replace with actual endpoint)
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Show success
+        showSuccess();
+
+        // Optional: Track conversion for analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', {
+            event_category: 'booking',
+            event_label: new FormData(form).get('serviceType')
+          });
+        }
+
+      } catch (error) {
+        showErrors(['Something went wrong. Please try again or call us directly.']);
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitText.classList.remove('hidden');
+        submitLoading.classList.add('hidden');
+      }
+    });
+
+    // Real-time validation feedback
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.hasAttribute('required') && !this.value.trim()) {
+          this.classList.add('border-red-300', 'focus:ring-red-500', 'focus:border-red-500');
+          this.classList.remove('border-stone-300', 'focus:ring-blue-500', 'focus:border-blue-500');
+        } else {
+          this.classList.remove('border-red-300', 'focus:ring-red-500', 'focus:border-red-500');
+          this.classList.add('border-stone-300', 'focus:ring-blue-500', 'focus:border-blue-500');
+        }
+      });
+    });
+  });
+</script>

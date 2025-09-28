@@ -1,0 +1,348 @@
+---
+// Search functionality component
+---
+
+<!-- Search Box Component -->
+<div class="relative group">
+  <div class="relative">
+    <input
+      type="search"
+      id="site-search"
+      placeholder="Search services..."
+      class="w-full md:w-64 px-4 py-2 pl-10 pr-12 text-sm border border-stone-200 rounded-full bg-stone-50 focus:bg-white focus:border-stone-400 focus:outline-none transition-all duration-200 placeholder:text-stone-500"
+      autocomplete="off"
+    />
+
+    <!-- Search Icon -->
+    <svg
+      class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-stone-400 group-focus-within:text-stone-600"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+    </svg>
+
+    <!-- Clear Button -->
+    <button
+      type="button"
+      id="clear-search"
+      class="absolute right-2 top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full bg-stone-200 hover:bg-stone-300 flex items-center justify-center transition-colors opacity-0 invisible group-focus-within:opacity-100 group-focus-within:visible"
+      aria-label="Clear search"
+    >
+      <svg class="w-3 h-3 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Search Results Dropdown -->
+  <div
+    id="search-results"
+    class="absolute top-full left-0 right-0 mt-1 bg-white border border-stone-200 rounded-xl shadow-lg z-50 hidden max-h-80 overflow-y-auto"
+  >
+    <!-- Search results will be populated here -->
+    <div id="search-results-content" class="p-4">
+      <!-- Loading state -->
+      <div id="search-loading" class="hidden text-center py-8">
+        <div class="animate-spin w-6 h-6 border-2 border-stone-300 border-t-stone-600 rounded-full mx-auto mb-2"></div>
+        <p class="text-sm text-stone-500">Searching...</p>
+      </div>
+
+      <!-- No results -->
+      <div id="no-results" class="hidden text-center py-8">
+        <svg class="w-12 h-12 text-stone-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <p class="text-stone-500 font-medium">No results found</p>
+        <p class="text-stone-400 text-sm mt-1">Try searching for "plumbing", "electrical", or "emergency"</p>
+      </div>
+
+      <!-- Quick actions when no search term -->
+      <div id="search-suggestions" class="space-y-2">
+        <p class="text-xs text-stone-500 font-medium tracking-wide uppercase mb-3">Quick Actions</p>
+
+        <a href="/emergency" class="block p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors">
+              <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium text-stone-800">Get Emergency Help</div>
+              <div class="text-xs text-stone-500">24/7 emergency services</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/plumbing" class="block p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+              <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2h2v2h-2zm0-4v-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4H7c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium text-stone-800">Find Plumbing Services</div>
+              <div class="text-xs text-stone-500">Pipes, drains, water heaters</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/electrical" class="block p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+              <svg class="w-4 h-4 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.51c.4 0 .62.19.4.66C12.18 17.98 11 21 11 21z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium text-stone-800">Find Electrical Services</div>
+              <div class="text-xs text-stone-500">Power, panels, installations</div>
+            </div>
+          </div>
+        </a>
+
+        <button
+          id="open-booking-search"
+          class="w-full p-3 hover:bg-stone-50 rounded-lg transition-colors group text-left"
+        >
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg class="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium text-stone-800">Book Service Now</div>
+              <div class="text-xs text-stone-500">Get your free estimate</div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('site-search');
+    const searchResults = document.getElementById('search-results');
+    const searchResultsContent = document.getElementById('search-results-content');
+    const clearButton = document.getElementById('clear-search');
+    const searchSuggestions = document.getElementById('search-suggestions');
+    const noResults = document.getElementById('no-results');
+    const openBookingSearch = document.getElementById('open-booking-search');
+
+    // Search data structure
+    const searchData = {
+      'emergency': {
+        title: 'Emergency Services',
+        url: '/emergency',
+        description: '24/7 emergency response for urgent situations',
+        category: 'Emergency'
+      },
+      'plumbing': {
+        title: 'Plumbing Services',
+        url: '/plumbing',
+        description: 'Professional plumbing repairs and maintenance',
+        category: 'Services'
+      },
+      'electrical': {
+        title: 'Electrical Services',
+        url: '/electrical',
+        description: 'Safe electrical installations and repairs',
+        category: 'Services'
+      },
+      'contact': {
+        title: 'Contact Us',
+        url: '/contact',
+        description: 'Get in touch for service and support',
+        category: 'Contact'
+      },
+      'pipes': {
+        title: 'Plumbing Services',
+        url: '/plumbing',
+        description: 'Pipe repairs, replacements, and installations',
+        category: 'Services'
+      },
+      'water': {
+        title: 'Plumbing Services',
+        url: '/plumbing',
+        description: 'Water heater and plumbing solutions',
+        category: 'Services'
+      },
+      'drain': {
+        title: 'Plumbing Services',
+        url: '/plumbing',
+        description: 'Drain cleaning and unclogging services',
+        category: 'Services'
+      },
+      'power': {
+        title: 'Electrical Services',
+        url: '/electrical',
+        description: 'Power restoration and electrical solutions',
+        category: 'Services'
+      },
+      'outlet': {
+        title: 'Electrical Services',
+        url: '/electrical',
+        description: 'Outlet installation and repair services',
+        category: 'Services'
+      },
+      'circuit': {
+        title: 'Electrical Services',
+        url: '/electrical',
+        description: 'Circuit breaker and panel services',
+        category: 'Services'
+      }
+    };
+
+    // Search function
+    function performSearch(query) {
+      const normalizedQuery = query.toLowerCase().trim();
+
+      if (normalizedQuery.length === 0) {
+        showSuggestions();
+        return;
+      }
+
+      const results = [];
+
+      // Search through data
+      Object.keys(searchData).forEach(key => {
+        if (key.includes(normalizedQuery) ||
+            searchData[key].title.toLowerCase().includes(normalizedQuery) ||
+            searchData[key].description.toLowerCase().includes(normalizedQuery)) {
+          results.push({
+            key,
+            ...searchData[key],
+            relevance: key === normalizedQuery ? 2 : (key.startsWith(normalizedQuery) ? 1 : 0)
+          });
+        }
+      });
+
+      // Remove duplicates and sort by relevance
+      const uniqueResults = results.reduce((acc, current) => {
+        const existing = acc.find(item => item.url === current.url);
+        if (!existing || current.relevance > existing.relevance) {
+          return acc.filter(item => item.url !== current.url).concat(current);
+        }
+        return acc;
+      }, []);
+
+      uniqueResults.sort((a, b) => b.relevance - a.relevance);
+
+      if (uniqueResults.length === 0) {
+        showNoResults();
+      } else {
+        showResults(uniqueResults);
+      }
+    }
+
+    function showSuggestions() {
+      searchSuggestions.classList.remove('hidden');
+      noResults.classList.add('hidden');
+      document.querySelectorAll('.search-result-item').forEach(item => item.remove());
+    }
+
+    function showNoResults() {
+      searchSuggestions.classList.add('hidden');
+      noResults.classList.remove('hidden');
+      document.querySelectorAll('.search-result-item').forEach(item => item.remove());
+    }
+
+    function showResults(results) {
+      searchSuggestions.classList.add('hidden');
+      noResults.classList.add('hidden');
+
+      // Clear existing results
+      document.querySelectorAll('.search-result-item').forEach(item => item.remove());
+
+      // Add new results
+      results.forEach(result => {
+        const resultElement = document.createElement('a');
+        resultElement.href = result.url;
+        resultElement.className = 'search-result-item block p-3 hover:bg-stone-50 rounded-lg transition-colors border-b border-stone-100 last:border-b-0';
+
+        resultElement.innerHTML = `
+          <div class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-stone-400 rounded-full mt-2 flex-shrink-0"></div>
+            <div class="min-w-0 flex-1">
+              <div class="font-medium text-stone-800 truncate">${result.title}</div>
+              <div class="text-sm text-stone-500 line-clamp-2">${result.description}</div>
+              <div class="text-xs text-stone-400 mt-1">${result.category}</div>
+            </div>
+          </div>
+        `;
+
+        searchResultsContent.appendChild(resultElement);
+      });
+    }
+
+    // Event listeners
+    searchInput?.addEventListener('input', function(e) {
+      const query = e.target.value;
+      performSearch(query);
+
+      if (query.length > 0) {
+        searchResults.classList.remove('hidden');
+      } else {
+        searchResults.classList.add('hidden');
+      }
+    });
+
+    searchInput?.addEventListener('focus', function() {
+      if (searchInput.value.length > 0 || true) {
+        searchResults.classList.remove('hidden');
+        if (searchInput.value.length === 0) {
+          showSuggestions();
+        }
+      }
+    });
+
+    // Clear search
+    clearButton?.addEventListener('click', function() {
+      searchInput.value = '';
+      searchResults.classList.add('hidden');
+      searchInput.focus();
+    });
+
+    // Open booking form from search
+    openBookingSearch?.addEventListener('click', function() {
+      searchResults.classList.add('hidden');
+      searchInput.value = '';
+
+      // Try to trigger the main booking form
+      const openFormBtn = document.getElementById('open-booking-form');
+      if (openFormBtn) {
+        openFormBtn.click();
+      }
+    });
+
+    // Close search when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInput?.contains(e.target) && !searchResults?.contains(e.target)) {
+        searchResults.classList.add('hidden');
+      }
+    });
+
+    // Handle escape key
+    searchInput?.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        searchResults.classList.add('hidden');
+        searchInput.blur();
+      }
+    });
+  });
+</script>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

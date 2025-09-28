@@ -1,0 +1,97 @@
+---
+// Floating click-to-call button for mobile users
+---
+
+<!-- Floating Call Button - Mobile Only -->
+<div class="md:hidden fixed bottom-20 right-4 z-40">
+  <a
+    href="tel:6722003045"
+    id="floating-call-button"
+    class="w-16 h-16 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 touch-manipulation animate-pulse hover:animate-none hover:scale-110"
+    aria-label="Call DSpots Emergency Services now"
+  >
+    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+  </a>
+
+  <!-- Tooltip -->
+  <div
+    id="call-tooltip"
+    class="absolute bottom-full right-0 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg whitespace-nowrap opacity-0 invisible transition-all duration-300 transform translate-y-2"
+  >
+    Call (672) 200-3045
+    <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-800"></div>
+  </div>
+</div>
+
+<!-- Secondary Call Button for Desktop Header -->
+<div class="hidden md:block">
+  <a
+    href="tel:6722003045"
+    class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-200 shadow-sm hover:shadow-md touch-manipulation"
+  >
+    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+    <span class="whitespace-nowrap">(672) 200-3045</span>
+  </a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const floatingButton = document.getElementById('floating-call-button');
+    const tooltip = document.getElementById('call-tooltip');
+    let tooltipTimeout: NodeJS.Timeout;
+
+    // Show tooltip on hover for mobile
+    floatingButton?.addEventListener('mouseenter', function() {
+      clearTimeout(tooltipTimeout);
+      tooltip?.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+    });
+
+    floatingButton?.addEventListener('mouseleave', function() {
+      tooltip?.classList.add('opacity-0', 'invisible', 'translate-y-2');
+    });
+
+    // Show tooltip briefly on first load
+    setTimeout(() => {
+      tooltip?.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+      tooltipTimeout = setTimeout(() => {
+        tooltip?.classList.add('opacity-0', 'invisible', 'translate-y-2');
+      }, 3000);
+    }, 2000);
+
+    // Hide button when scrolling to footer to avoid overlap
+    let lastScrollY = window.scrollY;
+
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+      const footer = document.querySelector('footer');
+
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Hide button when footer is in view
+        if (footerRect.top < windowHeight) {
+          floatingButton?.classList.add('opacity-0', 'pointer-events-none');
+        } else {
+          floatingButton?.classList.remove('opacity-0', 'pointer-events-none');
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    // Throttled scroll listener
+    let scrollTimeout: NodeJS.Timeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleScroll, 16); // ~60fps
+    });
+
+    // Initial check
+    handleScroll();
+  });
+</script>

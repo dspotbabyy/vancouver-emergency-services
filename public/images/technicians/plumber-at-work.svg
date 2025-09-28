@@ -1,0 +1,38 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8fafc"/>
+
+  <!-- Professional plumber kneeling and working -->
+  <ellipse cx="400" cy="550" rx="150" ry="40" fill="black" opacity="0.1"/>
+
+  <!-- Plumber body -->
+  <rect x="350" y="350" width="100" height="180" rx="50" fill="#2563eb"/>
+  <circle cx="400" cy="300" r="50" fill="#fde68a"/>
+
+  <!-- Hard hat -->
+  <ellipse cx="400" cy="270" rx="55" ry="25" fill="#fbbf24"/>
+  <rect x="380" y="250" width="40" height="20" rx="10" fill="white"/>
+
+  <!-- Arms working -->
+  <rect x="300" y="320" width="40" height="80" rx="20" fill="#fde68a" transform="rotate(-30 320 360)"/>
+  <rect x="460" y="320" width="40" height="80" rx="20" fill="#fde68a" transform="rotate(20 480 360)"/>
+
+  <!-- Tool in hand -->
+  <rect x="250" y="380" width="15" height="80" rx="7" fill="#374151" transform="rotate(-30 258 420)"/>
+  <rect x="240" y="370" width="35" height="20" rx="10" fill="#6b7280" transform="rotate(-30 258 380)"/>
+
+  <!-- Pipes being worked on -->
+  <rect x="200" y="500" width="400" height="30" rx="15" fill="#6b7280"/>
+  <rect x="320" y="470" width="30" height="60" rx="15" fill="#6b7280"/>
+
+  <!-- Water connection -->
+  <circle cx="350" cy="500" r="15" fill="#3b82f6"/>
+
+  <!-- Tool box -->
+  <rect x="550" y="450" width="120" height="80" rx="5" fill="#dc2626"/>
+  <rect x="560" y="440" width="100" height="10" rx="5" fill="#374151"/>
+
+  <!-- Professional badge -->
+  <circle cx="650" cy="100" r="50" fill="white" stroke="#2563eb" stroke-width="3"/>
+  <text x="650" y="95" text-anchor="middle" fill="#2563eb" font-family="Arial" font-size="12" font-weight="bold">LICENSED</text>
+  <text x="650" y="110" text-anchor="middle" fill="#2563eb" font-family="Arial" font-size="10">PROFESSIONAL</text>
+</svg>

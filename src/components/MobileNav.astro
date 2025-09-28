@@ -42,7 +42,7 @@ const { service } = Astro.props;
     <!-- Menu Header -->
     <div class="flex items-center justify-between p-6 border-b border-stone-200">
       <h2 id="mobile-menu-title" class="text-lg font-semibold text-stone-800">
-        Vancouver Emergency
+        DSpots Emergency
       </h2>
       <button
         id="mobile-menu-close"
@@ -59,7 +59,7 @@ const { service } = Astro.props;
     <!-- Emergency CTA at Top -->
     <div class="p-6 bg-red-50 border-b border-red-100">
       <a
-        href="tel:6045550123"
+        href="tel:6722003045"
         class="block w-full bg-red-600 hover:bg-red-700 text-white py-4 px-6 rounded-xl text-center font-bold text-lg transition-colors duration-200 touch-manipulation shadow-lg"
       >
         <div class="flex items-center justify-center gap-3">
@@ -68,55 +68,85 @@ const { service } = Astro.props;
           </svg>
           <span>CALL NOW</span>
         </div>
-        <div class="text-sm opacity-90 mt-1">(604) 555-0123</div>
+        <div class="text-sm opacity-90 mt-1">(672) 200-3045</div>
       </a>
     </div>
 
     <!-- Navigation Links -->
-    <nav class="p-6 space-y-4">
+    <nav class="p-6 space-y-3">
+      <!-- Emergency Services - Top Priority -->
       <a
-        href="/"
-        class="block py-3 px-4 text-stone-800 hover:bg-stone-50 rounded-lg transition-colors duration-200 touch-manipulation font-medium"
-      >
-        Home
-      </a>
-
-      <a
-        href="/plumbing"
-        class={`block py-3 px-4 rounded-lg transition-colors duration-200 touch-manipulation font-medium ${
-          service === 'plumbing'
-            ? 'bg-blue-50 text-blue-800 border border-blue-200'
-            : 'text-stone-800 hover:bg-stone-50'
-        }`}
+        href="/emergency"
+        class="block py-4 px-4 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-colors duration-200 touch-manipulation font-bold shadow-lg"
       >
         <div class="flex items-center justify-between">
-          <span>Plumbing Services</span>
-          <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+          <div class="flex items-center gap-3">
+            <span class="w-3 h-3 bg-white rounded-full animate-pulse"></span>
+            <span>Get Emergency Help Now</span>
+          </div>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
         </div>
-        <div class="text-xs text-stone-500 mt-1">Emergency repairs & maintenance</div>
+        <div class="text-xs text-red-100 mt-1">24/7 immediate response available</div>
       </a>
 
-      <a
-        href="/electrical"
-        class={`block py-3 px-4 rounded-lg transition-colors duration-200 touch-manipulation font-medium ${
-          service === 'electrical'
-            ? 'bg-amber-50 text-amber-800 border border-amber-200'
-            : 'text-stone-800 hover:bg-stone-50'
-        }`}
-      >
-        <div class="flex items-center justify-between">
-          <span>Electrical Services</span>
-          <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
-        </div>
-        <div class="text-xs text-stone-500 mt-1">Power & safety solutions</div>
-      </a>
+      <!-- Services Section -->
+      <div class="pt-2">
+        <p class="text-xs text-stone-500 font-medium tracking-wide uppercase mb-3 px-4">Dspots Contracting Services</p>
 
-      <a
-        href="/contact"
-        class="block py-3 px-4 text-stone-800 hover:bg-stone-50 rounded-lg transition-colors duration-200 touch-manipulation font-medium"
-      >
-        Contact & Areas
-      </a>
+        <a
+          href="/plumbing"
+          class={`block py-3 px-4 rounded-lg transition-colors duration-200 touch-manipulation font-medium ${
+            service === 'plumbing'
+              ? 'bg-blue-50 text-blue-800 border border-blue-200'
+              : 'text-slate-800 hover:bg-blue-50 hover:text-blue-700'
+          }`}
+        >
+          <div class="flex items-center justify-between">
+            <span>Find Plumbing Solutions</span>
+            <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+          </div>
+          <div class="text-xs text-slate-500 mt-1">Pipes • Drains • Water heaters • Repairs</div>
+        </a>
+
+        <a
+          href="/electrical"
+          class={`block py-3 px-4 rounded-lg transition-colors duration-200 touch-manipulation font-medium ${
+            service === 'electrical'
+              ? 'bg-orange-50 text-orange-800 border border-orange-200'
+              : 'text-slate-800 hover:bg-orange-50 hover:text-orange-600'
+          }`}
+        >
+          <div class="flex items-center justify-between">
+            <span>Find Electrical Solutions</span>
+            <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+          </div>
+          <div class="text-xs text-slate-500 mt-1">Power • Panels • Outlets • Safety</div>
+        </a>
+      </div>
+
+      <!-- Action Items -->
+      <div class="pt-4 border-t border-stone-200">
+        <button
+          id="mobile-booking-btn"
+          class="w-full py-3 px-4 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors duration-200 touch-manipulation font-semibold"
+        >
+          <div class="flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            <span>Book Service Now</span>
+          </div>
+        </button>
+
+        <a
+          href="/contact"
+          class="block py-3 px-4 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors duration-200 touch-manipulation font-medium text-center mt-2"
+        >
+          Contact & Service Areas
+        </a>
+      </div>
     </nav>
 
     <!-- Quick Info -->
@@ -183,6 +213,20 @@ const { service } = Astro.props;
     const navLinks = menuPanel?.querySelectorAll('a');
     navLinks?.forEach(link => {
       link.addEventListener('click', closeMenu);
+    });
+
+    // Mobile booking button functionality
+    const mobileBookingBtn = document.getElementById('mobile-booking-btn');
+    mobileBookingBtn?.addEventListener('click', function() {
+      closeMenu();
+
+      // Try to open the booking form from the sticky CTA
+      setTimeout(() => {
+        const openFormBtn = document.getElementById('open-booking-form');
+        if (openFormBtn) {
+          openFormBtn.click();
+        }
+      }, 300); // Small delay to ensure menu is closed
     });
   });
 </script>
