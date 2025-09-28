@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import MobileNav from '../components/MobileNav.astro';
 
 export interface Props {
   title: string;
@@ -15,50 +16,116 @@ const { title, description = 'Vancouver Emergency Plumbing & Electrical Services
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Performance & SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#dc2626" />
+    <link rel="canonical" href={`https://vancouveremergency.com${Astro.url.pathname}`} />
+
+    <!-- Icons & Manifest -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Critical CSS Fonts with Display Swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Emergency Phone Number Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Vancouver Emergency Plumbing & Electrical Services",
+        "description": "24/7 emergency plumbing and electrical services in Vancouver",
+        "telephone": "+1-604-555-0123",
+        "url": "https://vancouveremergency.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Vancouver",
+          "addressRegion": "BC",
+          "addressCountry": "CA"
+        },
+        "openingHours": "Mo-Su 00:00-23:59",
+        "serviceArea": {
+          "@type": "Place",
+          "name": "Vancouver & Lower Mainland"
+        },
+        "priceRange": "$",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Emergency Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Emergency Plumbing",
+                "description": "24/7 plumbing repairs and maintenance"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Emergency Electrical",
+                "description": "24/7 electrical repairs and installations"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+
     <title>{title} | Vancouver Emergency Services</title>
   </head>
   <body class="h-full bg-stone-50 font-sans antialiased" style="font-family: 'Inter', system-ui, sans-serif;">
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200/50">
-      <nav class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div class="flex justify-between items-center h-20">
+    <!-- Sticky Emergency CTA for Mobile -->
+    <div class="md:hidden fixed top-0 left-0 right-0 bg-red-600 text-white z-40 px-4 py-2">
+      <a href="tel:6045550123" class="flex items-center justify-center gap-2 text-sm font-semibold touch-manipulation">
+        <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+        <span>EMERGENCY: (604) 555-0123</span>
+      </a>
+    </div>
+
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200/50 mt-10 md:mt-0">
+      <nav class="max-w-6xl mx-auto px-4 md:px-6 lg:px-12">
+        <div class="flex justify-between items-center h-16 md:h-20">
+          <!-- Logo/Brand -->
           <div class="flex items-center">
-            <div class="flex flex-col">
-              <h1 class="text-lg font-semibold text-stone-800 tracking-tight leading-tight">
+            <a href="/" class="flex flex-col touch-manipulation">
+              <h1 class="text-base md:text-lg font-semibold text-stone-800 tracking-tight leading-tight">
                 Vancouver Emergency
               </h1>
-              <span class="text-xs text-stone-500 font-medium tracking-wide uppercase">
+              <span class="text-xs text-stone-500 font-medium tracking-wide uppercase hidden sm:block">
                 Professional Services
               </span>
-            </div>
+            </a>
           </div>
+
+          <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-1">
-            <a href="/" class="text-stone-600 hover:text-stone-800 px-4 py-2.5 rounded-full text-sm font-medium transition-colors duration-200">
+            <a href="/" class="text-stone-600 hover:text-stone-800 px-4 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 touch-manipulation">
               Home
             </a>
-            <a href="/plumbing" class={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${service === 'plumbing' ? 'bg-stone-100 text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-800 hover:bg-stone-50'}`}>
+            <a href="/plumbing" class={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 touch-manipulation ${service === 'plumbing' ? 'bg-stone-100 text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-800 hover:bg-stone-50'}`}>
               Plumbing
             </a>
-            <a href="/electrical" class={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${service === 'electrical' ? 'bg-stone-100 text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-800 hover:bg-stone-50'}`}>
+            <a href="/electrical" class={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 touch-manipulation ${service === 'electrical' ? 'bg-stone-100 text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-800 hover:bg-stone-50'}`}>
               Electrical
             </a>
-            <a href="/contact" class="bg-stone-800 text-white hover:bg-stone-700 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ml-4 shadow-sm">
+            <a href="/contact" class="bg-stone-800 text-white hover:bg-stone-700 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ml-4 shadow-sm touch-manipulation">
               Contact Us
             </a>
           </div>
 
-          <!-- Mobile menu button -->
-          <div class="md:hidden">
-            <button type="button" class="text-stone-600 hover:text-stone-800 p-2 rounded-lg">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
+          <!-- Mobile Navigation Component -->
+          <MobileNav service={service} />
         </div>
       </nav>
     </header>
@@ -67,45 +134,74 @@ const { title, description = 'Vancouver Emergency Plumbing & Electrical Services
       <slot />
     </main>
 
+    <!-- Mobile-First Footer -->
     <footer class="bg-white border-t border-stone-200">
-      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-        <div class="grid md:grid-cols-4 gap-12 mb-16">
-          <div class="md:col-span-2">
-            <div class="mb-6">
+      <!-- Mobile Emergency CTA Strip -->
+      <div class="md:hidden bg-red-600 text-white">
+        <a href="tel:6045550123" class="block py-4 px-4 text-center font-bold touch-manipulation">
+          <div class="flex items-center justify-center gap-2">
+            <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <span>CALL FOR EMERGENCY: (604) 555-0123</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-8 md:py-16">
+        <!-- Mobile Layout: Stacked, Desktop: Grid -->
+        <div class="space-y-8 md:grid md:grid-cols-4 md:gap-8 md:space-y-0 mb-8 md:mb-16">
+          <!-- Company Info -->
+          <div class="md:col-span-2 text-center md:text-left">
+            <div class="mb-4 md:mb-6">
               <h3 class="text-lg font-semibold text-stone-800 mb-2">Vancouver Emergency Services</h3>
-              <p class="text-stone-600 text-sm leading-relaxed max-w-md">
-                Professional plumbing and electrical services with a commitment to quality, reliability, and customer satisfaction throughout Vancouver.
+              <p class="text-stone-600 text-sm leading-relaxed max-w-md mx-auto md:mx-0">
+                Professional plumbing and electrical services with a commitment to quality, reliability, and customer satisfaction.
               </p>
             </div>
-            <div class="flex items-center space-x-6">
-              <div class="text-xs text-stone-500 font-medium">
-                24/7 EMERGENCY SERVICE
-              </div>
+            <div class="flex items-center justify-center md:justify-start space-x-4">
+              <div class="text-xs text-stone-500 font-medium">24/7 EMERGENCY SERVICE</div>
               <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
             </div>
           </div>
 
-          <div>
+          <!-- Services -->
+          <div class="text-center md:text-left">
             <h4 class="font-medium text-stone-800 mb-4 text-sm tracking-wide">Services</h4>
-            <ul class="space-y-3 text-sm text-stone-600">
-              <li><a href="/plumbing" class="hover:text-stone-800 transition-colors duration-200">Plumbing Solutions</a></li>
-              <li><a href="/electrical" class="hover:text-stone-800 transition-colors duration-200">Electrical Services</a></li>
-              <li><a href="/contact" class="hover:text-stone-800 transition-colors duration-200">Emergency Response</a></li>
+            <ul class="space-y-2 md:space-y-3 text-sm text-stone-600">
+              <li>
+                <a href="/plumbing" class="hover:text-stone-800 transition-colors duration-200 touch-manipulation block py-1">
+                  Plumbing Solutions
+                </a>
+              </li>
+              <li>
+                <a href="/electrical" class="hover:text-stone-800 transition-colors duration-200 touch-manipulation block py-1">
+                  Electrical Services
+                </a>
+              </li>
+              <li>
+                <a href="/contact" class="hover:text-stone-800 transition-colors duration-200 touch-manipulation block py-1">
+                  Emergency Response
+                </a>
+              </li>
             </ul>
           </div>
 
-          <div>
+          <!-- Contact -->
+          <div class="text-center md:text-left">
             <h4 class="font-medium text-stone-800 mb-4 text-sm tracking-wide">Contact</h4>
-            <div class="space-y-3 text-sm text-stone-600">
-              <div class="flex items-center space-x-2">
+            <div class="space-y-2 md:space-y-3 text-sm text-stone-600">
+              <div class="flex items-center justify-center md:justify-start space-x-2">
                 <span class="text-stone-400">Phone:</span>
-                <span class="font-medium">(604) 555-0123</span>
+                <a href="tel:6045550123" class="font-medium hover:text-stone-800 touch-manipulation">
+                  (604) 555-0123
+                </a>
               </div>
-              <div class="flex items-center space-x-2">
+              <div class="flex items-center justify-center md:justify-start space-x-2">
                 <span class="text-stone-400">Email:</span>
-                <span>info@vancouveremergency.com</span>
+                <a href="mailto:info@vancouveremergency.com" class="hover:text-stone-800 touch-manipulation">
+                  info@vancouveremergency.com
+                </a>
               </div>
-              <div class="flex items-start space-x-2">
+              <div class="flex items-start justify-center md:justify-start space-x-2">
                 <span class="text-stone-400">Area:</span>
                 <span>Vancouver & Lower Mainland</span>
               </div>
@@ -113,12 +209,13 @@ const { title, description = 'Vancouver Emergency Plumbing & Electrical Services
           </div>
         </div>
 
-        <div class="border-t border-stone-200 pt-8">
-          <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <!-- Bottom Section -->
+        <div class="border-t border-stone-200 pt-6 md:pt-8">
+          <div class="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0 text-center md:text-left">
             <p class="text-xs text-stone-500">
               © 2024 Vancouver Emergency Services. Licensed & Insured.
             </p>
-            <div class="flex items-center space-x-6 text-xs text-stone-500">
+            <div class="flex items-center justify-center space-x-3 md:space-x-6 text-xs text-stone-500">
               <span>Professional</span>
               <span>•</span>
               <span>Reliable</span>

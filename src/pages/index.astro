@@ -11,20 +11,20 @@ import ServiceCard from '../components/ServiceCard.astro';
     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
 
     <!-- Hero Content -->
-    <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-32">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 md:py-20 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
         <!-- Left Column - Content -->
-        <div class="space-y-8">
+        <div class="space-y-6 md:space-y-8 text-center lg:text-left">
           <!-- Emergency Badge -->
-          <div class="inline-flex items-center space-x-2 bg-red-600/90 backdrop-blur-sm px-4 py-2 rounded-full">
+          <div class="inline-flex items-center space-x-2 bg-red-600/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm">
             <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-            <span class="text-sm font-semibold tracking-wide uppercase">24/7 Emergency Response</span>
+            <span class="font-semibold tracking-wide uppercase">24/7 Emergency Response</span>
           </div>
 
-          <!-- Main Headlines -->
-          <div class="space-y-6">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
+          <!-- Main Headlines - Mobile Optimized -->
+          <div class="space-y-4 md:space-y-6">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
               <span class="block text-white">Fast</span>
               <span class="block text-transparent bg-gradient-to-r from-blue-400 to-amber-400 bg-clip-text">
                 Reliable
@@ -32,37 +32,53 @@ import ServiceCard from '../components/ServiceCard.astro';
               <span class="block text-white">Emergency</span>
             </h1>
 
-            <div class="space-y-4">
-              <h2 class="text-xl md:text-2xl font-light text-blue-100 leading-relaxed">
+            <div class="space-y-3 md:space-y-4">
+              <h2 class="text-lg sm:text-xl md:text-2xl font-light text-blue-100 leading-relaxed">
                 Vancouver's #1 Plumbing & Electrical Experts
               </h2>
-              <p class="text-lg text-slate-300 leading-relaxed max-w-lg">
+              <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 <strong class="text-white">60-minute response guarantee.</strong> Licensed professionals ready to solve your emergency problems with precision and care.
               </p>
             </div>
           </div>
 
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <!-- Mobile-First CTA Buttons -->
+          <div class="space-y-4 pt-2">
+            <!-- Primary CTA - Prominent on Mobile -->
             <a
               href="tel:6045550123"
-              class="group bg-red-600 hover:bg-red-500 text-white px-8 py-5 rounded-xl text-lg font-bold flex items-center justify-center gap-3 transition-all duration-300 shadow-2xl hover:shadow-red-500/25 hover:scale-105 transform"
+              class="group block w-full bg-red-600 hover:bg-red-500 active:bg-red-700 text-white py-5 px-6 rounded-2xl text-lg font-bold transition-all duration-300 shadow-2xl hover:shadow-red-500/25 touch-manipulation transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              <svg class="w-6 h-6 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-              </svg>
-              <span>CALL NOW: (604) 555-0123</span>
+              <div class="flex items-center justify-center gap-3">
+                <svg class="w-6 h-6 group-hover:animate-pulse flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <div class="text-center">
+                  <div class="text-lg font-bold">CALL NOW</div>
+                  <div class="text-sm opacity-90 font-medium">(604) 555-0123</div>
+                </div>
+              </div>
             </a>
 
-            <a
-              href="#services"
-              class="group bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 hover:border-white/40 px-8 py-5 rounded-xl text-lg font-semibold flex items-center justify-center gap-3 transition-all duration-300"
-            >
-              <span>View Our Services</span>
-              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
+            <!-- Secondary CTA - Optimized for Mobile -->
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a
+                href="#services"
+                class="flex-1 group bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 hover:border-white/40 py-4 px-6 rounded-xl text-base font-semibold transition-all duration-300 touch-manipulation flex items-center justify-center gap-2"
+              >
+                <span>View Services</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+
+              <a
+                href="/contact"
+                class="flex-1 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 hover:border-white/40 py-4 px-6 rounded-xl text-base font-semibold transition-all duration-300 touch-manipulation text-center"
+              >
+                Get Quote
+              </a>
+            </div>
           </div>
 
           <!-- Trust Indicators -->
