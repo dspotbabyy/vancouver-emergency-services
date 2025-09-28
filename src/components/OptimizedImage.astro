@@ -25,103 +25,26 @@ const {
   aspectRatio
 } = Astro.props;
 
-// For SVG files, use them directly without srcset generation
-const isSvg = src.toLowerCase().endsWith('.svg');
-
-// Generate responsive image sources for non-SVG images
-const generateSrcSet = (baseSrc: string) => {
-  if (isSvg) return undefined;
-
-  const ext = baseSrc.split('.').pop();
-  const base = baseSrc.replace(`.${ext}`, '');
-
-  // Check if responsive variants exist, otherwise use original
-  return [
-    `${base}-400w.${ext} 400w`,
-    `${base}-800w.${ext} 800w`,
-    `${base}-1200w.${ext} 1200w`,
-    `${base}-1600w.${ext} 1600w`
-  ].join(', ');
-};
-
-const srcSet = generateSrcSet(src);
-
 // Use eager loading for priority images
 const actualLoading = priority ? 'eager' : loading;
-
-// Generate WebP variant path for non-SVG images
-const webpSrc = isSvg ? undefined : src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 ---
 
-{isSvg ? (
-  <!-- SVG images - use directly without picture element -->
-  <img
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    loading={actualLoading}
-    decoding="async"
-    class={`svg-image ${className}`}
-    onerror={fallback ? `this.src='${fallback}'` : undefined}
-    style={aspectRatio ? `aspect-ratio: ${aspectRatio}` : undefined}
-  />
-) : (
-  <!-- Raster images - use picture element for optimization -->
-  <picture class={className}>
-    <!-- WebP format for modern browsers -->
-    {webpSrc && (
-      <source
-        srcset={generateSrcSet(webpSrc)}
-        sizes={sizes}
-        type="image/webp"
-      />
-    )}
-
-    <!-- Fallback to original format -->
-    <img
-      src={src}
-      srcset={srcSet}
-      sizes={sizes}
-      alt={alt}
-      width={width}
-      height={height}
-      loading={actualLoading}
-      decoding="async"
-      class="raster-image"
-      onerror={fallback ? `this.src='${fallback}'` : undefined}
-      style={aspectRatio ? `aspect-ratio: ${aspectRatio}` : undefined}
-    />
-  </picture>
-)}
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={actualLoading}
+  decoding="async"
+  class={className}
+  onerror={fallback ? `this.src='${fallback}'` : undefined}
+  style={aspectRatio ? `aspect-ratio: ${aspectRatio}` : undefined}
+/>
 
 <style>
-  picture {
-    display: block;
-    width: 100%;
-  }
-
-  .svg-image,
-  .raster-image {
+  img {
     max-width: 100%;
     height: auto;
     display: block;
-  }
-
-  .svg-image {
-    /* SVG specific optimizations */
-    shape-rendering: geometricPrecision;
-  }
-
-  .raster-image {
-    /* Raster image optimizations */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimize-contrast;
-  }
-
-  /* Prevent layout shift */
-  picture img {
-    width: 100%;
-    height: auto;
   }
 </style>
