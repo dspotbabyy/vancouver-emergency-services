@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://dspots.com/</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dspots.com/images/heroes/Hero.png</image:loc>
+      <image:title>DSpots Emergency Services Vancouver</image:title>
+      <image:caption>24/7 Emergency Plumbing and Electrical Services in Vancouver</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Emergency Services Page - Very High Priority -->
+  <url>
+    <loc>https://dspots.com/emergency</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Plumbing Services - High Priority -->
+  <url>
+    <loc>https://dspots.com/plumbing</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://dspots.com/images/professional/maxim-tolchinskiy-MxTn1faOdsw-unsplash.jpg</image:loc>
+      <image:title>Professional Plumbing Services Vancouver</image:title>
+      <image:caption>Licensed plumbers providing 24/7 emergency plumbing services</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Electrical Services - High Priority -->
+  <url>
+    <loc>https://dspots.com/electrical</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://dspots.com/images/professional/thisisengineering-zIL_CiC-bT0-unsplash.jpg</image:loc>
+      <image:title>Professional Electrical Services Vancouver</image:title>
+      <image:caption>Licensed electricians providing 24/7 emergency electrical services</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Contact Page - Medium Priority -->
+  <url>
+    <loc>https://dspots.com/contact</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

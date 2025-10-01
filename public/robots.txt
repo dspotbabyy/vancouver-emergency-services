@@ -1,0 +1,23 @@
+# Robots.txt for DSpots Emergency Services
+# https://dspots.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and API paths (if they exist)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_app/
+Disallow: /node_modules/
+
+# Allow search engines to access CSS and JS
+Allow: /*.css
+Allow: /*.js
+Allow: /images/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://dspots.com/sitemap.xml
