@@ -127,6 +127,113 @@ const {
       }
     </script>
 
+    <!-- Service-specific Schema -->
+    {service === 'plumbing' && (
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "DSpots Emergency Plumbing Services",
+          "serviceType": "Plumbing",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "DSpots Emergency Services",
+            "telephone": "+1-672-238-4660",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Vancouver",
+              "addressRegion": "BC",
+              "addressCountry": "CA"
+            }
+          },
+          "areaServed": "Vancouver, BC",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Plumbing Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Emergency Plumbing Repairs",
+                  "description": "24/7 emergency plumbing repairs for burst pipes and leaks"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Drain Cleaning",
+                  "description": "Professional drain cleaning and unclogging services"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Water Heater Service",
+                  "description": "Water heater repair, installation and maintenance"
+                }
+              }
+            ]
+          }
+        }
+      </script>
+    )}
+
+    {service === 'electrical' && (
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "serviceType": "Electrical",
+          "name": "DSpots Emergency Electrical Services",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "DSpots Emergency Services",
+            "telephone": "+1-672-238-4660",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Vancouver",
+              "addressRegion": "BC",
+              "addressCountry": "CA"
+            }
+          },
+          "areaServed": "Vancouver, BC",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Electrical Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Emergency Electrical Repairs",
+                  "description": "24/7 emergency electrical repairs and power restoration"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Electrical Panel Upgrades",
+                  "description": "Professional electrical panel upgrades and installations"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Electrical Wiring",
+                  "description": "New electrical wiring and installation services"
+                }
+              }
+            ]
+          }
+        }
+      </script>
+    )}
+
     <title>{title} | DSpots Emergency Services</title>
   </head>
   <body class="h-full bg-stone-50 font-sans antialiased" style="font-family: 'Inter', system-ui, sans-serif;">

@@ -26,7 +26,7 @@
   <!-- Plumbing Services - High Priority -->
   <url>
     <loc>https://dspots.com/plumbing</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2024-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -36,10 +36,17 @@
     </image:image>
   </url>
 
+  <url>
+    <loc>https://dspots.com/plumbing#services</loc>
+    <lastmod>2024-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Electrical Services - High Priority -->
   <url>
     <loc>https://dspots.com/electrical</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2024-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -47,6 +54,14 @@
       <image:title>Professional Electrical Services Vancouver</image:title>
       <image:caption>Licensed electricians providing 24/7 emergency electrical services</image:caption>
     </image:image>
+  </url>
+
+  <!-- Service Sections -->
+  <url>
+    <loc>https://dspots.com/electrical#services</loc>
+    <lastmod>2024-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Contact Page - Medium Priority -->
