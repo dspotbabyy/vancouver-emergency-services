@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
 import MobileNav from '../components/MobileNav.astro';
-import StickyBookingCTA from '../components/StickyBookingCTA.astro';
-import BookingForm from '../components/BookingForm.astro';
 import SearchBox from '../components/SearchBox.astro';
 import FooterContactForm from '../components/FooterContactForm.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
@@ -56,7 +54,7 @@ const { title, description = 'DSpots Emergency Plumbing & Electrical Services - 
         "@type": "LocalBusiness",
         "name": "DSpots Emergency Plumbing & Electrical Services",
         "description": "24/7 emergency plumbing and electrical services in Vancouver",
-        "telephone": "+1-672-200-3045",
+        "telephone": "+1-672-238-4660",
         "url": "https://dspots.com",
         "address": {
           "@type": "PostalAddress",
@@ -100,9 +98,9 @@ const { title, description = 'DSpots Emergency Plumbing & Electrical Services - 
   <body class="h-full bg-stone-50 font-sans antialiased" style="font-family: 'Inter', system-ui, sans-serif;">
     <!-- Sticky Emergency CTA for Mobile -->
     <div class="md:hidden fixed top-0 left-0 right-0 bg-red-600 text-white z-40 px-4 py-2">
-      <a href="tel:6722003045" class="flex items-center justify-center gap-2 text-sm font-semibold touch-manipulation">
+      <a href="tel:6722384660" class="flex items-center justify-center gap-2 text-sm font-semibold touch-manipulation">
         <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-        <span>EMERGENCY: (672) 200-3045</span>
+        <span>EMERGENCY: (672) 238-4660</span>
       </a>
     </div>
 
@@ -233,11 +231,5 @@ const { title, description = 'DSpots Emergency Plumbing & Electrical Services - 
     <!-- Live Chat Widget -->
     <LiveChatWidget />
 
-    <!-- Sticky Booking CTA -->
-    {showBookingCTA && (
-      <StickyBookingCTA service={service}>
-        <BookingForm defaultService={service} />
-      </StickyBookingCTA>
-    )}
   </body>
 </html>
