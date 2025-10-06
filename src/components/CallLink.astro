@@ -1,0 +1,22 @@
+---
+export interface Props {
+  class?: string;
+  urgent?: boolean;
+}
+
+const { class: className = '', urgent = false } = Astro.props;
+---
+
+<a
+  href="tel:+16722384660"
+  class={`inline-flex items-center gap-2 font-semibold touch-manipulation transition-colors duration-200 ${urgent ? 'text-red-600 hover:text-red-700' : 'text-blue-600 hover:text-blue-700'} ${className}`}
+  aria-label="Call DSpots Emergency Services at (672) 238-4660"
+>
+  {urgent && (
+    <span class="flex items-center gap-1">
+      <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+      <span class="text-xs uppercase tracking-wide font-bold text-red-600">Emergency:</span>
+    </span>
+  )}
+  <span>(672) 238-4660</span>
+</a>

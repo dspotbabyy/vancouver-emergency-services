@@ -29,7 +29,7 @@
             </div>
           </div>
           <a
-            href="tel:6722384660"
+            href="tel:+16722384660"
             class="block w-full bg-white text-red-600 py-3 px-4 rounded-lg font-bold text-center hover:bg-red-50 transition-colors touch-manipulation"
           >
             📞 Call (672) 238-4660 Now
@@ -87,7 +87,7 @@
       <div class="bg-white rounded-xl p-6 text-slate-800">
         <h3 class="text-xl font-bold mb-4">Send us a Message</h3>
         <p class="text-slate-600 mb-6 text-sm">
-          Need a quote or have questions? Fill out this form and we'll get back to you within 30 minutes during business hours.
+          Need a quote or have questions? Fill out this form and we'll get back to you within 15 minutes for emergencies, or 30 minutes during business hours for non-emergency requests.
         </p>
 
         <form id="footer-contact-form" class="space-y-4">
@@ -116,6 +116,7 @@
                 id="footer-phone"
                 name="phone"
                 required
+                pattern="[\+]?[(]?[\d\s\-\(\)]{10,}"
                 class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 placeholder="(672) 238-4660"
               />
@@ -170,6 +171,11 @@
             ></textarea>
           </div>
 
+          <!-- Honey-pot field for spam protection -->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="company_website" tabindex="-1" value="" autocomplete="off" />
+          </div>
+
           <!-- Submit Button -->
           <button
             type="submit"
@@ -194,6 +200,40 @@
     footerForm?.addEventListener('submit', function(e) {
       e.preventDefault();
 
+      // Check honey-pot field for spam protection
+      const honeypot = footerForm.querySelector('input[name="company_website"]');
+      if (honeypot && honeypot.value !== '') {
+        console.log('Spam detected via honey-pot field');
+        return false;
+      }
+
+      // Validate required fields
+      const name = footerForm.querySelector('input[name="name"]');
+      const phone = footerForm.querySelector('input[name="phone"]');
+
+      if (!name.value.trim()) {
+        footerMessage.className = 'p-3 rounded-lg bg-red-100 text-red-800 text-sm';
+        footerMessage.textContent = 'Please enter your name.';
+        footerMessage.classList.remove('hidden');
+        return false;
+      }
+
+      if (!phone.value.trim()) {
+        footerMessage.className = 'p-3 rounded-lg bg-red-100 text-red-800 text-sm';
+        footerMessage.textContent = 'Please enter your phone number.';
+        footerMessage.classList.remove('hidden');
+        return false;
+      }
+
+      // Basic phone validation
+      const phonePattern = /[\+]?[(]?[\d\s\-\(\)]{10,}/;
+      if (!phonePattern.test(phone.value)) {
+        footerMessage.className = 'p-3 rounded-lg bg-red-100 text-red-800 text-sm';
+        footerMessage.textContent = 'Please enter a valid phone number.';
+        footerMessage.classList.remove('hidden');
+        return false;
+      }
+
       // Show loading state
       const submitBtn = footerForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
@@ -203,7 +243,7 @@
       // Simulate form submission (replace with actual form handling)
       setTimeout(() => {
         footerMessage.className = 'p-3 rounded-lg bg-green-100 text-green-800 text-sm';
-        footerMessage.textContent = 'Thank you! We\'ll contact you within 30 minutes during business hours.';
+        footerMessage.textContent = 'Thank you! We\'ll contact you within 15 minutes for emergencies, or 30 minutes during business hours.';
         footerMessage.classList.remove('hidden');
 
         // Reset form

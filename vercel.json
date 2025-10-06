@@ -1,0 +1,44 @@
+{
+  "routes": [
+    {
+      "src": "/blog",
+      "status": 410
+    },
+    {
+      "src": "/blog/(.*)",
+      "status": 410
+    },
+    {
+      "src": "/shop",
+      "status": 410
+    },
+    {
+      "src": "/shop/(.*)",
+      "status": 410
+    },
+    {
+      "src": "/bookmarks",
+      "status": 410
+    },
+    {
+      "src": "/bookmarks/(.*)",
+      "status": 410
+    },
+    {
+      "src": "/my-listings",
+      "status": 410
+    },
+    {
+      "src": "/my-listings/(.*)",
+      "status": 410
+    },
+    {
+      "src": "/listings",
+      "status": 410
+    },
+    {
+      "src": "/listings/(.*)",
+      "status": 410
+    }
+  ]
+}

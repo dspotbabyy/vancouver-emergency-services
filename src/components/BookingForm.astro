@@ -105,6 +105,7 @@ const { variant = 'default', defaultService } = Astro.props;
               name="customerPhone"
               class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors touch-manipulation"
               placeholder="(672) 238-4660"
+              pattern="[\+]?[(]?[\d\s\-\(\)]{10,}"
               required
               autocomplete="tel"
             />
@@ -189,6 +190,11 @@ const { variant = 'default', defaultService } = Astro.props;
             class="w-full px-4 py-3 border border-stone-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none touch-manipulation"
             placeholder="Briefly describe the issue or service needed..."
           ></textarea>
+        </div>
+
+        <!-- Honey-pot field for spam protection -->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="company_website" tabindex="-1" value="" autocomplete="off" />
         </div>
       </div>
 
@@ -282,6 +288,12 @@ const { variant = 'default', defaultService } = Astro.props;
     function validateForm() {
       const errors = [];
       const formData = new FormData(form);
+
+      // Check honey-pot field for spam protection
+      if (formData.get('company_website')) {
+        console.log('Spam detected via honey-pot field');
+        return { isValid: false, errors: ['Invalid submission detected'] };
+      }
 
       // Check required fields
       if (!formData.get('serviceType')) {

@@ -1,8 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Base from '../layouts/Base.astro';
+import CallLink from '../components/CallLink.astro';
 ---
 
-<BaseLayout
+<Base
   title="Emergency Services"
   description="24/7 emergency plumbing and electrical services in Vancouver. Immediate response for urgent situations. Call now for help!"
 >
@@ -27,7 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Emergency CTA -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
         <a
-          href="tel:6722384660"
+          href="tel:+16722384660"
           class="bg-white hover:bg-red-50 text-red-600 px-8 py-4 rounded-2xl text-xl font-bold inline-flex items-center justify-center gap-3 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:scale-105 touch-manipulation"
         >
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -115,7 +116,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
 
           <a
-            href="tel:6722384660"
+            href="tel:+16722384660"
             class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 transition-colors touch-manipulation"
           >
             <span>Get Plumbing Help Now</span>
@@ -160,7 +161,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
 
           <a
-            href="tel:6722384660"
+            href="tel:+16722384660"
             class="mt-6 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 transition-colors touch-manipulation"
           >
             <span>Get Electrical Help Now</span>
@@ -227,7 +228,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Emergency plumbing and electrical problems can cause serious damage or safety hazards. Call now for immediate professional help.
       </p>
       <a
-        href="tel:6722384660"
+        href="tel:+16722384660"
         class="bg-white hover:bg-red-50 text-red-600 px-10 py-5 rounded-2xl text-2xl font-bold inline-flex items-center gap-4 transition-all duration-200 shadow-2xl hover:shadow-3xl transform hover:scale-105 touch-manipulation"
       >
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
@@ -237,7 +238,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </a>
     </div>
   </section>
-</BaseLayout>
+</Base>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

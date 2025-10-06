@@ -1,0 +1,235 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  service?: 'plumbing' | 'electrical';
+  canonicalURL?: string;
+  ogImage?: string;
+  keywords?: string;
+}
+
+const {
+  title,
+  description = 'DSpots Emergency Services - 24/7 professional plumbing and electrical services in Vancouver, Burnaby, Richmond, Surrey, and North Vancouver. Call (672) 238-4660 for immediate help!',
+  service,
+  canonicalURL = `https://dspots.com${Astro.url.pathname}`,
+  ogImage = 'https://dspots.com/images/heroes/Hero.png',
+  keywords = 'emergency plumber vancouver, 24/7 electrician vancouver, emergency plumbing, electrical repairs vancouver, burst pipe repair, power outage help'
+} = Astro.props;
+
+const fullTitle = `${title} | DSpots Emergency Services`;
+---
+
+<!-- Essential Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonicalURL} />
+<meta name="author" content="DSpots Emergency Services" />
+<meta name="publisher" content="DSpots Emergency Services" />
+<meta name="keywords" content={keywords} />
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="DSpots Emergency Services - 24/7 Plumbing and Electrical Services in Vancouver" />
+<meta property="og:site_name" content="DSpots Emergency Services" />
+<meta property="og:locale" content="en_CA" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content="DSpots Emergency Services - 24/7 Plumbing and Electrical Services in Vancouver" />
+
+<!-- LocalBusiness JSON-LD Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DSpots Emergency Services",
+  "description": "24/7 emergency plumbing and electrical services in Vancouver and surrounding areas",
+  "telephone": "+16722384660",
+  "url": "https://dspots.com",
+  "logo": "https://dspots.com/images/branding/logo.png",
+  "image": "https://dspots.com/images/heroes/Hero.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Vancouver",
+    "addressRegion": "BC",
+    "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "49.2827",
+    "longitude": "-123.1207"
+  },
+  "openingHours": "Mo-Su 00:00-23:59",
+  "serviceArea": [
+    {
+      "@type": "Place",
+      "name": "Vancouver, BC"
+    },
+    {
+      "@type": "Place",
+      "name": "Burnaby, BC"
+    },
+    {
+      "@type": "Place",
+      "name": "Richmond, BC"
+    },
+    {
+      "@type": "Place",
+      "name": "Surrey, BC"
+    },
+    {
+      "@type": "Place",
+      "name": "North Vancouver, BC"
+    }
+  ],
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/dspots",
+    "https://www.instagram.com/dspots"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Emergency Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Emergency Plumbing Services",
+          "description": "24/7 plumbing repairs, burst pipe repair, drain cleaning, and water heater services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Emergency Electrical Services",
+          "description": "24/7 electrical repairs, power outage assistance, panel upgrades, and wiring services"
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+})} />
+
+<!-- Service-specific Schema -->
+{service === 'plumbing' && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DSpots Emergency Plumbing Services",
+    "serviceType": "Plumbing",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "DSpots Emergency Services",
+      "telephone": "+16722384660",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      }
+    },
+    "areaServed": ["Vancouver, BC", "Burnaby, BC", "Richmond, BC", "Surrey, BC", "North Vancouver, BC"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Plumbing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "24 Hour Plumber Vancouver - Emergency Repairs",
+            "description": "24 hour plumber Vancouver for burst pipe repair Vancouver and emergency plumbing services"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Drain Cleaning Vancouver & Rooter Service",
+            "description": "Drain cleaning Vancouver and rooter service Vancouver for clogged drain repair"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hot Water Tank Repair Vancouver",
+            "description": "Hot water tank repair Vancouver and water heater installation Vancouver services"
+          }
+        }
+      ]
+    }
+  })} />
+)}
+
+{service === 'electrical' && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "serviceType": "Electrical",
+    "name": "DSpots Emergency Electrical Services",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "DSpots Emergency Services",
+      "telephone": "+16722384660",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      }
+    },
+    "areaServed": ["Vancouver, BC", "Burnaby, BC", "Richmond, BC", "Surrey, BC", "North Vancouver, BC"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Electrical Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "24 Hour Electrician Vancouver - Emergency Repairs",
+            "description": "24 hour electrician Vancouver for power outage electrician and urgent electrical repair Vancouver"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Panel Upgrade Vancouver & Electrical Panel Installation",
+            "description": "Panel upgrade Vancouver and electrical panel installation Vancouver services"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Home Electrical Repair Vancouver & Wiring",
+            "description": "Home electrical repair Vancouver and whole house rewiring Vancouver services"
+          }
+        }
+      ]
+    }
+  })} />
+)}
